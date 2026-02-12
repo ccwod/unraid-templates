@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>meshtastic-signal-bridge</Name>
+  <Repository>ghcr.io/ccwod/meshtastic-signal-bridge:latest</Repository>
+  <Registry>https://ghcr.io</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support>http://google.com</Support>
+  <Project>https://github.com/ccwod/meshtastic-signal-bridge/</Project>
+  <ReadMe/>
+  <Overview>A bridge to enable communication between Meshtastic nodes and Signal groups. </Overview>
+  <Category>Tools: Network:Messenger</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>http://google.com</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1770920951</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>  - You must possess a basic understanding of Meshtastic, node configuration, and node placement&#13;
+  - This host system must be in a location that is connectable to a broader, city-wide mesh&#13;
+  - Required: A USB-connected Meshtastic node (e.g. T1000-E)&#13;
+  - Required: A Signal account with a Signal group&#13;
+&#13;
+First run instructions: Before running, ensure your mesh device is plugged into the host via USB and powered on. Ensure your Signal account is created, as well as the Signal group you want to interface with. Then, run the container for the first time with the SIGNAL_GROUP_ID and MESH_DEVICE variables empty. On first run (view container logs), the container will 1. Help you link your Signal account 2. List your available Signal GroupIDs 3. List your connected USB devices. Run it first, obtain the necessary variable info, enter them into the container template, and then restart the container. Once the sequence reads "Bridge active - relaying messages", then the bridge is fully operational.</Requires>
+  <Config Name="Signal Group ID" Target="SIGNAL_GROUP_ID" Default="" Mode="" Description="Required for Signal - Group ID of the target Signal group to communicate with, provided during startup after Signal account auth. Include the '=' at the end." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Mesh Device" Target="MESH_DEVICE" Default="" Mode="" Description="Required for mesh - USB path of the connected Meshtastic device. Listed on startup (if privleged=true), typically something like /dev/ttyACM* or /dev/ttyUSB*" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Mesh Channel Index" Target="MESH_CHANNEL_INDEX" Default="1" Mode="" Description="Channel index # for Meshtastic device to communicate on (0=PRIMARY), (1=SECOND), (2=THIRD), etc... 0 not allowed" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="Signal Short Names" Target="SIGNAL_SHORT_NAMES" Default="true" Mode="" Description="Signal display name based on Signal profile name. TRUE=first string of name, like [Joe]. FALSE=full Signal profile name, like [Joe J Lastname]." Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/Chicago" Mode="" Description="Timezone used for logging. Common US options: America/New_York, America/Chicago, America/Denver, America/Los_Angeles." Type="Variable" Display="always" Required="false" Mask="false">America/Chicago</Config>
+  <Config Name="Log Level" Target="LOG_LEVEL" Default="info" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">info</Config>
+  <Config Name="Signal Poll Interval" Target="SIGNAL_POLL_INTERVAL" Default="2" Mode="" Description="How often signal-cli is polled for new received Signal messages, seconds. Recommend do not change." Type="Variable" Display="advanced" Required="false" Mask="false">2</Config>
+  <Config Name="Node DB Warmup" Target="NODE_DB_WARMUP" Default="10" Mode="" Description="How many seconds to wait on for Meshtastic node list to populate on bridge startup, seconds. Recommend do not change." Type="Variable" Display="advanced" Required="false" Mask="false">10</Config>
+  <TailscaleStateDir/>
+</Container>
