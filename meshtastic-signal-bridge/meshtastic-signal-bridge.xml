@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>true</Privileged>
-  <Support>http://google.com</Support>
+  <Support>https://forums.unraid.net/topic/197198-support-meshtastic-signal-bridge</Support>
   <Project>https://github.com/ccwod/meshtastic-signal-bridge/</Project>
   <ReadMe/>
   <Overview>A bridge to enable communication between Meshtastic nodes and Signal groups. </Overview>
