@@ -14,7 +14,7 @@
   <Category>Tools: Network:Messenger</Category>
   <WebUI/>
   <TemplateURL/>
-  <Icon>http://google.com</Icon>
+  <Icon>https://raw.githubusercontent.com/ccwod/unraid-templates/refs/heads/main/meshtastic-signal-bridge/icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
